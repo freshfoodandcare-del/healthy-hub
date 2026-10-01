@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Healthy Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <div class="logo">
+            <img src="healthy hub logo.png" alt="Healthy Hub Logo">
+        </div>
+
+       <nav class="nav-left">
+    <a href="#">Home</a>
+    <a href="#categories">Category</a>
+</nav>
+
+    <div class="search-box">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search products..."
+        autocomplete="off"
+    >
+    <button type="button" id="searchBtn">⌕</button>
+</div>
+        <nav class="nav-right">
+            <div class="account-wrapper">
+
+    <a href="javascript:void(0)" class="account-icon" onclick="openAccount()">👤</a>
+
+    <div class="account-dropdown" id="accountDropdown">
+
+        <div id="accountContent"></div>
+
+    </div>
+
+</div>
+            <a href="favorite.html"class="favorite-icon">♡</a>
+            <a href="cart.html" class="shop-icon">🛍️</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    
+
+    <div class="hero-image">
+        <img src="hero a.jpg" alt="Healthy Food">
+    </div>
+   </section>
+    <section class="shop-category-heading" id="categories">
+    <h2>SHOP BY CATEGORY</h2>
+    <p>Discover the Fresh Collections</p>
+</section>
+<div class="category-grid">
+
+    <div class="category-card">
+        <div class="category-image">
+            <img src="diet food.jpeg" alt="Diet Food">
+        </div>
+        <h3>Diet Food</h3>
+    </div>
+
+    <a href="vegetables.html" class="category-card">
+    <div class="category-image">
+        <img src="vegetables.jpg" alt="Vegetables">
+    </div>
+    <h3>Vegetables</h3>
+</a>
+
+    <a href="fruits.html" class="category-card">
+    <div class="category-image">
+        <img src="fruits.jpg" alt="Fruits">
+    </div>
+    <h3>Fruits</h3>
+</a>
+
+    <a href="cut-vegetables.html" class="category-card">
+    <div class="category-image">
+        <img src="cut vegetables.jpeg" alt="Cut Vegetables">
+    </div>
+    <h3>Cut Vegetables</h3>
+</a>
+   <a href="fruit-salad.html" class="category-card">
+    <div class="category-image">
+        <img src="fruit salad.jpeg" alt="Fruit Salad">
+    </div>
+    <h3>Fruit Salad</h3>
+</a>
+
+    <a href="keerai.html" class="category-card">
+    <div class="category-image">
+        <img src="keerai-Greenleaves.jpeg" alt="Keerai / Green Leaves">
+    </div>
+    <h3>Keerai / Green Leaves</h3>
+</a>
+
+  <a href="millets.html" class="category-card">
+    <div class="category-image">
+        <img src="millets.jpeg" alt="Millets">
+    </div>
+    <h3>Millets</h3>
+</a>
+   <a href="ready-mix.html" class="category-card">
+    <div class="category-image">
+        <img src="ready mix.jpeg" alt="Ready Mix">
+    </div>
+    <h3>Ready Mix</h3>
+</a>
+    <a href="snacks-box.html" class="category-card">
+    <div class="category-image">
+        <img src="snacks box.jpeg" alt="Snacks Box">
+    </div>
+    <h3>Snacks Box</h3>
+</a>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer"
+<div class="footer-content">
+        <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">T&C</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+    </div>
+    <p class="copyright">&copy;2026 Healthy Hub. All rights reserved.</p>
+
+    <div class="social-links">
+    <a href="https://www.facebook.com/share/1JoZsxK8ny/"target="_blank" aria-label="facebook">f</a>
+    <a href=""target="_blank" aria-label="instagram">◎</a>
+    <a href=""target="_blank" aria-label="youtube">▶</a>
+    <a href=""target="_blank" aria-label="whatsup">◔</a>
+
+    </div>
+
+  </footer>
+  <script src="search.js"></script>
+
+<script>
+
+function openAccount() {
+
+    const dropdown = document.getElementById("accountDropdown");
+    const content = document.getElementById("accountContent");
+
+    const user = JSON.parse(
+        localStorage.getItem("healthyHubLoggedInUser")
+    );
+
+    if (user) {
+
+        content.innerHTML = `
+            <h3>My Account</h3>
+            <p class="account-name">👤 ${user.name}</p>
+            <p class="account-email">📧 ${user.email}</p>
+
+            <button onclick="logoutUser()" class="logout-btn">
+                Logout
+            </button>
+        `;
+
+    } else {
+
+        content.innerHTML = `
+            <h3>My Account</h3>
+            <p class="account-login-text">
+                You are not logged in.
+            </p>
+
+            <a href="login.html" class="signin-btn">
+                Sign In
+            </a>
+
+            <a href="register.html" class="register-link">
+                Create Account
+            </a>
+        `;
+    }
+
+    dropdown.classList.toggle("show");
+}
+
+
+function logoutUser() {
+
+    localStorage.removeItem("healthyHubLoggedInUser");
+
+    alert("You have been logged out.");
+
+    window.location.reload();
+}
+document.addEventListener("click", function(event) {
+
+    const accountWrapper = document.querySelector(".account-wrapper");
+    const dropdown = document.getElementById("accountDropdown");
+
+    if (
+        accountWrapper &&
+        dropdown &&
+        !accountWrapper.contains(event.target)
+    ) {
+        dropdown.classList.remove("show");
+    }
+
+});
+</script>
+<a href="https://wa.me/918098312857"
+   class="whatsapp-now"
+   target="_blank">
+    <span class="whatsapp-icon">◉</span>
+    WhatsApp Now
+</a>
+ </body>
+</html>
+ 

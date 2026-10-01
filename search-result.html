@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search | Healthy Hub</title>
+
+    <link rel="stylesheet" href="search-results.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="page-title">
+
+        <a href="index.html" class="home-icon">⌂</a>
+
+        <h1>Search Results</h1>
+
+        <p id="searchText"></p>
+
+    </section>
+
+
+    <section class="search-section">
+
+        <div id="searchGrid" class="search-grid"></div>
+
+        <div id="noResults" class="no-results">
+
+            <div class="empty-icon">🔍</div>
+
+            <h2>Product Not Found</h2>
+
+            <p>No product found for your search.</p>
+
+            <a href="index.html" class="shop-btn">
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        const search =
+            localStorage.getItem("healthyHubSearch") || "";
+
+        const searchGrid =
+            document.getElementById("searchGrid");
+
+        const noResults =
+            document.getElementById("noResults");
+
+        const searchText =
+            document.getElementById("searchText");
+
+
+        searchText.innerText =
+            'Results for "' + search + '"';
+
+
+        /*
+         * Product pages
+         */
+
+        const productPages = [
+            "vegetables.html",
+            "fruits.html",
+            "keerai.html",
+            "cut-vegetables.html",
+            "fruit-salad.html",
+            "ready-mix.html"
+        ];
+
+
+        /*
+         * Temporary message
+         */
+
+        noResults.style.display = "block";
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Healthy Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <img src="healthy hub logo.png" alt="Healthy Hub Logo">
+
+            <h2>Create Account</h2>
+
+            <p>Join Healthy Hub today</p>
+
+            <form onsubmit="registerUser(event)">
+
+                <input type="text" placeholder="Full Name" required>
+
+                <input type="email" placeholder="Email Address" required>
+
+                <input type="password" placeholder="Create Password" minlength="5" required>
+
+                <input type="password" placeholder="Confirm Password" minlength="5" required>
+
+                <button type="submit">Register</button>
+
+            </form>
+
+            <p class="signup-text">
+                Already have an account?
+                <a href="login.html">Sign In</a>
+            </p>
+
+            <a href="index.html" class="back-home">← Back to Home</a>
+
+        </div>
+
+    
+
+    <script>
+
+function registerUser(event) {
+
+    event.preventDefault();
+
+    const form = event.target;
+
+    const name = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+
+    const passwords = form.querySelectorAll('input[type="password"]');
+    const password = passwords[0].value;
+    const confirmPassword = passwords[1].value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("healthyHubUsers")) || [];
+
+    const existingUser = users.find(user => user.email === email);
+
+    if (existingUser) {
+        alert("This email is already registered. Please Sign In.");
+        return;
+    }
+
+    const newUser = {
+        name: name,
+        email: email,
+        password: password
+    };
+
+    users.push(newUser);
+
+    localStorage.setItem("healthyHubUsers", JSON.stringify(users));
+
+    alert("Account created successfully! Please Sign In.");
+
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Favorites | Healthy Hub</title>
+
+    <link rel="stylesheet" href="favorite.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= PAGE TITLE ================= -->
+
+    <section class="page-title">
+        <a href="index.html" class="home-icon">⌂</a>
+
+        <h1>My Favorites</h1>
+
+        <p>Your favorite healthy products</p>
+    </section>
+
+
+    <!-- ================= FAVORITE PRODUCTS ================= -->
+
+    <section class="favorites-section">
+
+        <div id="favoriteGrid" class="favorite-grid">
+            <!-- Favorite products will appear here -->
+        </div>
+
+        <div id="emptyFavorites" class="empty-favorites">
+            <div class="empty-icon">♡</div>
+
+            <h2>No Favorites Yet</h2>
+
+            <p>Add products to your favorites and they will appear here.</p>
+
+            <a href="index.html" class="shop-now-btn">
+                Continue Shopping
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script>
+
+        let favorites =
+            JSON.parse(localStorage.getItem("healthyHubFavorites")) || [];
+
+        const favoriteGrid =
+            document.getElementById("favoriteGrid");
+
+        const emptyFavorites =
+            document.getElementById("emptyFavorites");
+
+
+        function displayFavorites() {
+
+            favoriteGrid.innerHTML = "";
+
+            if (favorites.length === 0) {
+
+                emptyFavorites.style.display = "block";
+                favoriteGrid.style.display = "none";
+
+                return;
+            }
+
+            emptyFavorites.style.display = "none";
+            favoriteGrid.style.display = "grid";
+
+
+            favorites.forEach(function(item, index) {
+
+                const card = document.createElement("div");
+
+                card.className = "favorite-card";
+
+                card.innerHTML = `
+
+                    <div class="favorite-image">
+
+                        <img src="${item.image}" alt="${item.name}">
+
+                        <button
+                            class="remove-favorite"
+                            onclick="removeFavorite(${index})">
+                            ♥
+                        </button>
+
+                    </div>
+
+                    <div class="favorite-info">
+
+                        <h3>${item.name}</h3>
+
+                        <div class="price">
+                            ${item.price}
+                        </div>
+
+                        <button
+                            class="cart-btn"
+                            onclick="addToCart('${item.name}')">
+                            Add To Cart
+                        </button>
+
+                    </div>
+
+                `;
+
+                favoriteGrid.appendChild(card);
+
+            });
+
+        }
+
+
+        function removeFavorite(index) {
+
+            favorites.splice(index, 1);
+
+            localStorage.setItem(
+                "healthyHubFavorites",
+                JSON.stringify(favorites)
+            );
+
+            displayFavorites();
+
+        }
+
+
+        function addToCart(productName) {
+
+            alert(productName + " added to cart!");
+
+        }
+
+
+        displayFavorites();
+
+    </script>
+
+</body>
+</html>

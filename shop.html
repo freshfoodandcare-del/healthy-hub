@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Healthy Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <img src="healthy hub logo.png" alt="Healthy Hub Logo">
+        </div>
+
+        <nav class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="index.html#categories">Category</a>
+        </nav>
+
+        <div class="search-box">
+            <input type="text">
+            <span>⌕</span>
+        </div>
+
+        <nav class="nav-right">
+            <a href="login.html" class="account-icon">👤</a>
+            <a href="#" class="favorite-icon">♡</a>
+            <a href="shop.html" class="shop-icon">🛍️</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= SHOP PAGE ================= -->
+
+    <section class="shop-page">
+
+        <div class="shop-heading">
+            <h1>Shop</h1>
+            <p>Fresh, Natural & Healthy Products</p>
+        </div>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <div class="shop-categories">
+
+            <button onclick="filterProducts('all')">All</button>
+
+            <button onclick="filterProducts('vegetables')">
+                Vegetables
+            </button>
+
+            <button onclick="filterProducts('fruits')">
+                Fruits
+            </button>
+
+            <button onclick="filterProducts('diet')">
+                Diet Foods
+            </button>
+
+            <button onclick="filterProducts('snacks')">
+                Healthy Snacks
+            </button>
+
+        </div>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <div class="shop-product-grid" id="shop-product-grid">
+
+            <!-- Vegetable -->
+
+            <div class="shop-product-card vegetables">
+
+                <img src="vegetables.png" alt="Fresh Organic Vegetables">
+
+                <h3>Fresh Organic Vegetables</h3>
+
+                <p>Farm Fresh & Naturally Grown</p>
+
+                <span>₹120</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Vegetable -->
+
+            <div class="shop-product-card vegetables">
+
+                <img src="vegetables.png" alt="Organic Vegetable Basket">
+
+                <h3>Organic Vegetable Basket</h3>
+
+                <p>Fresh & Nutritious</p>
+
+                <span>₹250</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Fruit -->
+
+            <div class="shop-product-card fruits">
+
+                <img src="fruits.png" alt="Fresh Organic Fruits">
+
+                <h3>Fresh Organic Fruits</h3>
+
+                <p>Farm Fresh & Naturally Grown</p>
+
+                <span>₹180</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Fruit -->
+
+            <div class="shop-product-card fruits">
+
+                <img src="fruits.png" alt="Healthy Fruit Basket">
+
+                <h3>Healthy Fruit Basket</h3>
+
+                <p>Rich in Vitamins</p>
+
+                <span>₹300</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Diet -->
+
+            <div class="shop-product-card diet">
+
+                <img src="diet-food.png" alt="Healthy Diet Mix">
+
+                <h3>Healthy Diet Mix</h3>
+
+                <p>Natural & Nutritious</p>
+
+                <span>₹220</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Diet -->
+
+            <div class="shop-product-card diet">
+
+                <img src="diet-food.png" alt="Wholesome Diet Food">
+
+                <h3>Wholesome Diet Food</h3>
+
+                <p>Low Sugar & Healthy</p>
+
+                <span>₹280</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Snacks -->
+
+            <div class="shop-product-card snacks">
+
+                <img src="healthy-snacks.png" alt="Healthy Snack Box">
+
+                <h3>Healthy Snack Box</h3>
+
+                <p>Homemade & Natural</p>
+
+                <span>₹250</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+
+            <!-- Snacks -->
+
+            <div class="shop-product-card snacks">
+
+                <img src="healthy-snacks.png" alt="Natural Snack Mix">
+
+                <h3>Natural Snack Mix</h3>
+
+                <p>Tasty & Wholesome</p>
+
+                <span>₹300</span>
+
+                <button>Add to Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function filterProducts(category) {
+
+            const products =
+                document.querySelectorAll(".shop-product-card");
+
+            products.forEach(function(product) {
+
+                if (category === "all") {
+
+                    product.style.display = "block";
+
+                } else if (product.classList.contains(category)) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

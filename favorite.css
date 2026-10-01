@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+}
+
+
+/* ================= PAGE TITLE ================= */
+
+.page-title {
+    position: relative;
+    text-align: center;
+    padding: 35px 20px 30px;
+    background: #f1f8f1;
+    border-top: 3px solid #39a935;
+}
+
+.page-title h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+.page-title p {
+    font-size: 15px;
+    color: #666;
+}
+
+.home-icon {
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    font-size: 26px;
+    color: #299b32;
+    text-decoration: none;
+}
+
+.home-icon:hover {
+    color: #23852b;
+}
+
+
+/* ================= FAVORITES SECTION ================= */
+
+.favorites-section {
+    width: 100%;
+    padding: 40px 45px 70px;
+}
+
+
+/* ================= FAVORITE GRID ================= */
+
+.favorite-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+}
+
+
+/* ================= FAVORITE CARD ================= */
+
+.favorite-card {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ================= PRODUCT IMAGE ================= */
+
+.favorite-image {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: #faf9f7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorite-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+
+/* ================= REMOVE FAVORITE ================= */
+
+.remove-favorite {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #e53935;
+
+    font-size: 19px;
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.remove-favorite:hover {
+    background: #e53935;
+    color: #ffffff;
+}
+
+
+/* ================= PRODUCT INFO ================= */
+
+.favorite-info {
+    padding: 13px;
+    text-align: center;
+}
+
+.favorite-info h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #299b32;
+    margin-bottom: 11px;
+}
+
+
+/* ================= CART BUTTON ================= */
+
+.cart-btn {
+    width: 100%;
+    height: 36px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #299b32;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    background: #23852b;
+}
+
+
+/* ================= EMPTY FAVORITES ================= */
+
+.empty-favorites {
+    display: none;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.empty-icon {
+    font-size: 65px;
+    color: #299b32;
+    margin-bottom: 15px;
+}
+
+.empty-favorites h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.empty-favorites p {
+    font-size: 15px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+
+/* ================= SHOP NOW ================= */
+
+.shop-now-btn {
+    display: inline-block;
+
+    padding: 11px 24px;
+
+    background: #299b32;
+    color: #ffffff;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.shop-now-btn:hover {
+    background: #23852b;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 650px) {
+
+    .favorites-section {
+        padding: 30px 20px 50px;
+    }
+
+    .favorite-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .favorite-image {
+        height: 130px;
+    }
+
+    .favorite-image img {
+        width: 95%;
+        height: 95%;
+    }
+
+    .favorite-info {
+        padding: 11px;
+    }
+
+    .favorite-info h3 {
+        font-size: 14px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+}
